@@ -1,6 +1,6 @@
 # OpenGL GLXPbuffer Allocation Test
 
-author: Andrew Gallant <drew.gallant@gmail.com> <br>
+author: Andrew Gallant <br>
 git uid: ajgallant
 
 ## Summary
