@@ -10,7 +10,7 @@ GLXPbuffers.  OpenGL throws a BadMatch error in the call to glXCreatePbuffer()
 as indicated in the Application Output section.  This test was passing prior
 to an upgrade to MacOS X 10.15.
 
-##Dependencies
+## Dependencies
 
 OS:        MacOS 11.1 (Big Sur) <br>
 Graphics:  AMD Radeon Pro 575 <br>
@@ -21,17 +21,17 @@ compiler:  Apple clang version 12.0.0 (clang-1200.0.32.28) <br>
            Target: x86_64-apple-darwin20.2.0 <br>
 
 
-###Build
+### Build
 
     make all
 
 
-###Execute Application
+### Execute Application
 
     pbuf_render
 
 
-##Application Output
+## Application Output
 
 ```
 glXChooseFBConfig() found 160 eligible FBConfig
@@ -54,7 +54,7 @@ X Error of failed request:  BadMatch (invalid parameter attributes)
 2.  glXCreatePbuffer() docs from https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/ reads: <p> BadMatch is generated if config does not support rendering to pixel buffers (e.g., GLX_DRAWABLE_TYPE does not contain GLX_PBUFFER_BIT).
 
 
-##Additional Platform Information
+## Additional Platform Information
 
 ```
 ~+ glxinfo
