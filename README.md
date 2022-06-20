@@ -1,38 +1,39 @@
+# OpenGL GLXPbuffer Allocation Test
 
-OpenGL GLXPbuffer Allocation Test
+author: Andrew Gallant <drew.gallant@gmail.com> <br>
+git uid: ajgallant
 
-author:  Andrew Gallant (drew.gallant@gmail.com)
-
+## Summary
 
 This project is a test case for off-screen rendering in OpenGL 2.1 using
 GLXPbuffers.  OpenGL throws a BadMatch error in the call to glXCreatePbuffer()
 as indicated in the Application Output section.  This test was passing prior
 to an upgrade to MacOS X 10.15.
 
+##Dependencies
 
-Dependencies
-
-OS:        MacOS 11.1 (Big Sur)
-Graphics:  AMD Radeon Pro 575
-X11:       XQuartz 2.8.0 (xorg-server 1.19.7)
-  OpenGL 2.1
-  GLX 1.4
-compiler:  Apple clang version 12.0.0 (clang-1200.0.32.28)
-           Target: x86_64-apple-darwin20.2.0
-
-
-Build Application
-
-make all
+OS:        MacOS 11.1 (Big Sur) <br>
+Graphics:  AMD Radeon Pro 575 <br>
+X11:       XQuartz 2.8.0 (xorg-server 1.19.7) <br>
+  OpenGL 2.1 <br>
+  GLX 1.4 <br>
+compiler:  Apple clang version 12.0.0 (clang-1200.0.32.28) <br>
+           Target: x86_64-apple-darwin20.2.0 <br>
 
 
-Run Application
+###Build
 
-pbuf_render
+    make all
 
 
-Application Output
+###Execute Application
 
+    pbuf_render
+
+
+##Application Output
+
+```
 glXChooseFBConfig() found 160 eligible FBConfig
 fbCfg[0] id: 0x69, drawable_flags: 7 (4), render_flags: 1 (1)
 fbCfg[0] max: w8192 h8192 p0
@@ -42,21 +43,22 @@ X Error of failed request:  BadMatch (invalid parameter attributes)
   Minor opcode of failed request:  27 (X_GLXCreatePbuffer)
   Serial number of failed request:  20
   Current serial number in output stream:  20
+```
 
-Notes:
+**Note**
 
 1.  GLX_MAX_PBUFFER_PIXELS == 0 for all selected GLXFBConfig from
     glXChooseFBConfig().  This would imply that only a pbuffer of size 0 may be
     allocated.
 
-2.  glXCreatePbuffer() docs from https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/
-
-BadMatch is generated if config does not support rendering to pixel buffers (e.g., GLX_DRAWABLE_TYPE does not contain GLX_PBUFFER_BIT).
+2.  glXCreatePbuffer() docs from https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/ reads: <p> BadMatch is generated if config does not support rendering to pixel buffers (e.g., GLX_DRAWABLE_TYPE does not contain GLX_PBUFFER_BIT).
 
 
-Additional Platform Information
+##Additional Platform Information
 
-glxinfo output:
+```
+~+ glxinfo
+
 name of display: /private/tmp/com.apple.launchd.ofC9RLPwg2/org.xquartz:0
 display: /private/tmp/com.apple.launchd.ofC9RLPwg2/org.xquartz:0  screen: 0
 direct rendering: Yes
@@ -416,4 +418,4 @@ OpenGL extensions:
 0x0de 24 tc  1  32  0 r  y .   8  8  8  8 .  .  2 24  8  0  0  0  0  8 1 None
 0x0df 24 tc  1  32  0 r  y .   8  8  8  8 .  .  2 32  8  0  0  0  0  0 0 None
 0x0e0 24 tc  1  32  0 r  y .   8  8  8  8 .  .  2 32  8  0  0  0  0  8 1 None
-
+```
